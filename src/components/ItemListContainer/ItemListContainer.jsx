@@ -1,8 +1,12 @@
-import { Flex } from '@chakra-ui/react'
+import { Container, Flex, Box } from "@chakra-ui/react";
+import { ProductCard } from "../ProductCard";
 
-export const  ItemListContainer = ({greeting}) => {
-    return (
-        <Flex
-        alignItems={'center'} width={"100%"} height={"100vh"} justifyContent={'center'} fontSize={30} fontWeight={'bold'}>{greeting} </Flex>
-    )
-}
+export const ItemListContainer = ({ products }) => {
+  return (
+    <Box width="100vw" display={"flex"} maxW={"100vw"}>
+      {products.map((product) => {
+        return <ProductCard key={product.id} product={product} />;
+      })}
+    </Box>
+  );
+};

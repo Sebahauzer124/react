@@ -1,19 +1,23 @@
+import { ChakraProvider } from "@chakra-ui/react";
 
-import React from 'react'
+import { MainLayout } from "./layout/MainLayout";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./routes";
 
-import { ChakraProvider } from '@chakra-ui/react'
-import { NavBar,ItemListContainer } from './components'
 
 
-function App() {
- 
 
+const App = () => {
+  
   return (
     <ChakraProvider>
-      <NavBar />
-      <ItemListContainer greeting={'Bienvenidos a la tienda'} />
-    </ChakraProvider>
-  )
-}
+     
+       <RouterProvider router={router} />
 
-export default App
+         
+  
+    </ChakraProvider>
+  );
+};
+
+export default App;
