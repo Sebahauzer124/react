@@ -26,7 +26,7 @@ export const NavBar = () => {
     <>
       <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
-          <Box>Daniel's Store</Box>
+          <Box><Link to="/">Daniel's Store</Link></Box>
           <Menu>
             <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
               Categorías
@@ -35,7 +35,7 @@ export const NavBar = () => {
               {!loading
                 ? categories.map((category) => {
                     return (
-                      <MenuItem key={category.slug}><Link>{category.name}</Link></MenuItem>
+                      <MenuItem key={category.slug}><Link to={`/category/${category.slug}`}>{category.name}</Link></MenuItem>
                     );
                   })
                 : null}

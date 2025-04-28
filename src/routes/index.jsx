@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
-import {Category, Home} from "../pages";
+import {Category, Home,Item} from "../pages";
 import { MainLayout } from "../layout";
+
 
 const routes = [
     {
@@ -15,6 +16,11 @@ const routes = [
             {
                 path: "/category/:categoryId",
                 element: <Category/>
+            
+            },
+            {
+                path: "/item/:id",
+                element: <Item/>
             
             }
         ]
