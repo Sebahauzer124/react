@@ -6,12 +6,9 @@ export async function getProducts() {
 }
 
 export async function getProductsByCategory(id) {
-  return await axios.get(`${BASE_URL}/products/category/${id}`)
+  return await axios.get(`${BASE_URL}/products/category/${id}`);
 }
 
-export async function getProductsById(id){
-  return await axios.get(`${BASE_URL}/products/${id}`)
+export async function getProductById(id) {
+  return await axios.get(`${BASE_URL}/products/${id}`);
 }
-
-  
-

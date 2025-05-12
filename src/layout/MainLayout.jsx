@@ -2,11 +2,13 @@ import { Box, Container } from "@chakra-ui/react";
 import { NavBar } from "../components";
 import { Outlet } from "react-router-dom";
 
-export const MainLayout = ({ children }) => {
+export const MainLayout = () => {
   return (
     <>
       <NavBar />
-      <Box w={'100vw'}><Outlet/></Box>
+      <Box w={"100vw"}>
+        <Outlet />
+      </Box>
     </>
   );
 };

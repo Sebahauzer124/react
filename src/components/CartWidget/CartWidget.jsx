@@ -1,7 +1,17 @@
 import { Flex } from "@chakra-ui/react";
 import { IoIosCart } from "react-icons/io";
+import { useCounterStore } from "../../store";
+// import { useContext } from "react";
+// import { CartContext } from "../../context";
+
 
 export const CartWidget = () => {
+
+  // const {cartState} = useCounterStore();
+  const cartState = useCounterStore(state => state.cartState);
+
+  // const {cartState} = useContext(CartContext);
+
   return (
     <Flex
       alignItems={"center"}
@@ -11,7 +21,7 @@ export const CartWidget = () => {
       width={"50px"}
     >
       <IoIosCart />
-      <div>0</div>
+      <div>{cartState}</div>
     </Flex>
   );
 };

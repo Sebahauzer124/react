@@ -1,33 +1,60 @@
-import React from "react";
-import { Flex, Input, Button } from "@chakra-ui/react";
-
-import { Loader ,ItemListContainer} from "../components";
-
+import { Button, Flex, Input } from "@chakra-ui/react";
+import { ItemListContainer, Loader } from "../components";
 import { useProducts, useSearch } from "../hooks";
-
+import { useContext, useEffect } from "react";
+import { CartContext } from "../context";
 
 export const Home = () => {
-    const { products, loading } = useProducts();
-    const { handleClickSearch, handleClickReset, setSearch, productsSearch } =
-      useSearch();
-      return(
+  const { products, loading } = useProducts();
+  const { handleClickSearch, handleClickReset, setSearch, productsSearch } =
+    useSearch();
+
+  const handleInputChange = (e) => {
+    console.log(e.target.value);
+  };
+
+  const handleInputClick = () => {
+    console.log("Input clickeado");
+  };
+  const handleScroll = () => {
+    console.log("Scrolling...");
+  };
+
+  // useEffect(() => {
+  //   document.addEventListener("scroll", handleScroll);
+  //   //funcion clean up (funcion de limpieza)
+  //   return () => {
+  //     console.log("se destruye");
+  //     document.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
+
+  return (
     <>
-    <Flex w="50%">
-              <Input
-                onChange={(e) => setSearch(e.target.value)}
-                placeholder="Buscar un producto"
-              />
-              <Button onClick={handleClickSearch}>Buscar</Button>
-              <Button onClick={handleClickReset}>Reset</Button>
-            </Flex>
-    
-            {loading ? (
-              <Loader />
-            ) : (
-              <ItemListContainer
-                products={productsSearch.length > 0 ? productsSearch : products}
-              />
-            )} 
+      <Flex w="50%">
+        <Input
+          onChange={(e) => setSearch(e.target.value)}
+          placeholder="Buscar un producto"
+        />
+        <Input
+          id="myInput"
+          w={"50%"}
+          onChange={(e) => {
+            handleInputChange(e);
+          }}
+          onClick={handleInputClick}
+        />
+        <Button onClick={handleClickSearch}>Buscar</Button>
+        <Button onClick={handleClickReset}>Reset</Button>
+      </Flex>
+
+      {loading ? (
+        <Loader />
+      ) : (
+        <ItemListContainer
+          products={productsSearch.length > 0 ? productsSearch : products}
+        />
+      )}
     </>
-      )
+  );
 };

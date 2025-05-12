@@ -9,17 +9,15 @@ import {
   Badge,
   useColorModeValue,
   Icon,
-  Button,
   chakra,
   Tooltip,
+  Button,
 } from "@chakra-ui/react";
 import { BsStar, BsStarFill, BsStarHalf } from "react-icons/bs";
 import { FiShoppingCart } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 
-
 function Rating({ rating }) {
-
   return (
     <Box display="flex" alignItems="center">
       {Array(5)
@@ -45,7 +43,8 @@ function Rating({ rating }) {
 }
 
 export function ProductCard({ product }) {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+
   return (
     <Flex p={50} w="full" alignItems="center" justifyContent="center">
       <Box
@@ -108,9 +107,10 @@ export function ProductCard({ product }) {
               {product.price.toFixed(2)}
             </Box>
           </Flex>
-
         </Box>
-        <Button margin = {'10px'} onClick={()=>navigate(`/item/${product.id}`)}>ir a detalle</Button>
+        <Button margin={"10px"} onClick={() => navigate(`/item/${product.id}`)}>
+          Ir a detalle
+        </Button>
       </Box>
     </Flex>
   );
