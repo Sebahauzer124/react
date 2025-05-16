@@ -1,13 +1,12 @@
 import { Button, Flex, Input } from "@chakra-ui/react";
 import { ItemListContainer, Loader } from "../components";
-import { useProducts, useSearch } from "../hooks";
-import { useContext, useEffect } from "react";
-import { CartContext } from "../context";
+import { useProducts, useSearch, useTitle } from "../hooks";
 
 export const Home = () => {
   const { products, loading } = useProducts();
   const { handleClickSearch, handleClickReset, setSearch, productsSearch } =
     useSearch();
+  useTitle({ title: "Inicio" });
 
   const handleInputChange = (e) => {
     console.log(e.target.value);

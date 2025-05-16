@@ -1,16 +1,11 @@
 import { Flex } from "@chakra-ui/react";
 import { IoIosCart } from "react-icons/io";
-import { useCounterStore } from "../../store";
-// import { useContext } from "react";
-// import { CartContext } from "../../context";
-
+import { useProductsStore } from "../../store";
+import { useNavigate } from "react-router-dom";
 
 export const CartWidget = () => {
-
-  // const {cartState} = useCounterStore();
-  const cartState = useCounterStore(state => state.cartState);
-
-  // const {cartState} = useContext(CartContext);
+  const totalItems = useProductsStore((state) => state.getTotalItems());
+  const navigate = useNavigate();
 
   return (
     <Flex
@@ -19,9 +14,10 @@ export const CartWidget = () => {
       marginRight={"10px"}
       justifyContent={"space-between"}
       width={"50px"}
+      onClick={() => navigate('/cart')}
     >
       <IoIosCart />
-      <div>{cartState}</div>
+      <div>{totalItems}</div>
     </Flex>
   );
 };

@@ -100,7 +100,7 @@ export const ItemDetailContainer = ({ product }) => {
             </Box>
           </Stack>
 
-          <Counter />
+          <Counter product={product} />
         </Stack>
       </SimpleGrid>
     </Container>

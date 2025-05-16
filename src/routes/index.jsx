@@ -1,13 +1,16 @@
 import { createBrowserRouter } from "react-router-dom";
-import { Category, Home, Item } from "../pages";
 import { MainLayout } from "../layout/MainLayout";
-
-//Cuando en la ruta se agrega los dos puntos (:) quiere decir que esa ruta comtiene un URL Param
+import { Cart, Category, Home, Item, Login, Signup } from "../pages";
+import { ProtectedRoute } from "../components";
 
 const routes = [
   {
     path: "/",
-    element: <MainLayout />,
+    element: (
+      <ProtectedRoute>
+        <MainLayout />,
+      </ProtectedRoute>
+    ),
     children: [
       {
         path: "/",
@@ -21,21 +24,20 @@ const routes = [
         path: "/item/:id",
         element: <Item />,
       },
+      {
+        path: "/cart",
+        element: <Cart />,
+      },
     ],
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/signup",
+    element: <Signup />,
   },
 ];
 
 export const router = createBrowserRouter(routes);
-
-// import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-// export const MainRouter = () => {
-//   return (
-//     <BrowserRouter>
-//       <NavBar />
-//       <Routes>
-//         <Route path="/" element={<Home />} />
-//       </Routes>
-//     </BrowserRouter>
-//   );
-// };

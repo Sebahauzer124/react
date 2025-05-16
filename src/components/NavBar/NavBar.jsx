@@ -15,12 +15,15 @@ import {
 } from "@chakra-ui/react";
 import { MoonIcon, SunIcon, ChevronDownIcon } from "@chakra-ui/icons";
 import { CartWidget } from "../CartWidget";
-import { useCategories } from "../../hooks";
+import { useAuth, useCategories } from "../../hooks";
 import { Link } from "react-router-dom";
+import { createProductsFirestore } from "../../helpers";
 
 export const NavBar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   const { categories, loading } = useCategories();
+
+  const {logout} = useAuth()
 
   return (
     <>
@@ -54,6 +57,11 @@ export const NavBar = () => {
               <Button onClick={toggleColorMode}>
                 {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
               </Button>
+              
+              <Button onClick={() => createProductsFirestore("categories")}>
+                Crear Productos
+              </Button>
+
 
               <Menu>
                 <MenuButton
@@ -84,7 +92,7 @@ export const NavBar = () => {
                   <MenuDivider />
                   <MenuItem>Your Servers</MenuItem>
                   <MenuItem>Account Settings</MenuItem>
-                  <MenuItem>Logout</MenuItem>
+                  <MenuItem onClick={() => {logout()}}>Logout</MenuItem>
                 </MenuList>
               </Menu>
             </Stack>
