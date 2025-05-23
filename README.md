@@ -1,7 +1,7 @@
 # Proyecto React Coderhouse - Comisión 90325
 
 ## Autor
-Daniel Alanis
+Sebastian Hauzer
 
 ## Descripción
 Este es un proyecto desarrollado como parte del curso de React en Coderhouse, comisión 90325. Está creado utilizando Vite para una experiencia de desarrollo rápida y optimizada.
@@ -17,18 +17,6 @@ Antes de instalar y ejecutar el proyecto, asegúrate de tener instalado lo sigui
 
 - [Node.js](https://nodejs.org/) (versión recomendada: 16 o superior)
 - [Git](https://git-scm.com/)
-
-## Instalación y ejecución
-
-### 1. Clonar el repositorio
-```sh
-git clone https://github.com/danielalejandroalanis/coder-react-90325
-```
-
-### 2. Acceder al directorio del proyecto
-```sh
-cd coder-react-90325
-```
 
 ### 3. Instalar dependencias
 ```sh
@@ -46,8 +34,7 @@ Si deseas generar una versión optimizada para producción, ejecuta:
 npm run build
 ```
 
-## Contribuciones
-Si deseas contribuir a este proyecto, por favor abre un issue o realiza un pull request.
+
 
 ## Licencia
 Este proyecto está bajo la licencia MIT.
